@@ -70,12 +70,12 @@ function delay(ms: number): IPredicate
 
 ```ts
 function exponentialBackoff({
-  minTimeout
+  baseTimeout
 , maxTimeout = Infinity
 , factor = 2
 , jitter = true
 }: {
-  minTimeout: number
+  baseTimeout: number
   maxTimeout?: number
   factor?: number
   jitter?: boolean
@@ -84,7 +84,7 @@ function exponentialBackoff({
 
 Equivalent to
 ```ts
-const timeout = Math.min(factor ** retries * minTimeout, maxTimeout)
+const timeout = Math.min(factor ** retries * baseTimeout, maxTimeout)
 delay(jitter ? randomIntInclusive(0, timeout) : timeout)
 ```
 

@@ -9,7 +9,7 @@ describe('exponentialBackoff(options: IExponentialBackoffOptions): IPredicate<bo
 
     // Math.min(2 ** 2 * 500, 1500) = 1500
     const predicate = exponentialBackoff({
-      minTimeout: 500
+      baseTimeout: 500
     , maxTimeout: 1500
     , factor: 2
     , jitter: false
@@ -30,7 +30,7 @@ describe('exponentialBackoff(options: IExponentialBackoffOptions): IPredicate<bo
 
       // Math.min(2 ** 2 * 500, Infinity) = 2000
       const predicate = exponentialBackoff({
-        minTimeout: 500
+        baseTimeout: 500
       , maxTimeout: Infinity
       , factor: 2
       , jitter: true
@@ -50,7 +50,7 @@ describe('exponentialBackoff(options: IExponentialBackoffOptions): IPredicate<bo
 
       // Math.min(2 ** 2 * 500, Infinity) = 2000
       const predicate = exponentialBackoff({
-        minTimeout: 500
+        baseTimeout: 500
       , maxTimeout: Infinity
       , factor: 2
       , jitter: false
