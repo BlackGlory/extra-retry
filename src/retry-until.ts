@@ -1,7 +1,7 @@
 import { IPredicate, IContext } from './types'
 import { go } from '@blackglory/go'
 
-export function retryUntil<T>(predicate: IPredicate): (fn: () => T | PromiseLike<T>) => Promise<T>
+export function retryUntil(predicate: IPredicate): <T>(fn: () => T | PromiseLike<T>) => Promise<T>
 export function retryUntil<T>(predicate: IPredicate, fn: () => T | PromiseLike<T>): Promise<T>
 export function retryUntil<T>(...args:
 | [predicate: IPredicate]
