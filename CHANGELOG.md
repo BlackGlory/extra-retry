@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/BlackGlory/extra-retry/compare/v0.2.0...v0.2.1) (2021-03-22)
+
+
+### Features
+
+* improve overload ([753eb86](https://github.com/BlackGlory/extra-retry/commit/753eb86b9a254b790545191b803fb7db566ccdb6))
+
 ## [0.2.0](https://github.com/BlackGlory/extra-retry/compare/v0.1.0...v0.2.0) (2021-03-22)
 
 
