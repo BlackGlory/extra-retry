@@ -32,7 +32,7 @@ interface IContext {
 type IPredicate<T = unknown> = (context: IContext) => T | PromiseLike<T>
 ```
 
-## retryUntil
+### retryUntil
 
 ```ts
 function retryUntil<T>(predicate: IPredicate): (fn: () => T | PromiseLike<T>) => Promise<T>
@@ -44,9 +44,9 @@ retry until the return value of the `predicate` is [Truthy].
 
 [Truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
 
-## Helpers
+### Helpers
 
-### anyOf
+#### anyOf
 
 ```ts
 function anyOf(...predicates: IPredicate[]): IPredicate<boolean>
@@ -60,13 +60,13 @@ context => await predicate1(context)
         || await predicateN(context)
 ```
 
-### delay
+#### delay
 
 ```ts
 function delay(ms: number): IPredicate
 ```
 
-### exponentialBackoff
+#### exponentialBackoff
 
 ```ts
 function exponentialBackoff({
@@ -88,13 +88,13 @@ const timeout = Math.min(factor ** retries * baseTimeout, maxTimeout)
 delay(jitter ? randomIntInclusive(0, timeout) : timeout)
 ```
 
-### maxRetries
+#### maxRetries
 
 ```ts
 function maxRetries(times: number): IPredicate<boolean>
 ```
 
-### notRetryOn
+#### notRetryOn
 
 ```ts
 function notRetryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>
@@ -102,7 +102,7 @@ function notRetryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>
 
 Blacklist.
 
-### notRetryOnCommonFatalErrors
+#### notRetryOnCommonFatalErrors
 
 ```ts
 const notRetryOnCommonFatalErrors: IPredicate<boolean>
@@ -118,7 +118,7 @@ There is no `TypeError` because `TypeError` does not mean
 "a value is not of the expected type",
 it has been abused for various purposes.
 
-### retryOn
+#### retryOn
 
 ```ts
 function retryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>
@@ -126,7 +126,7 @@ function retryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>
 
 Whitelist.
 
-### signal
+#### signal
 
 ```ts
 function signal(abortSignal: AbortSignal): IPredicate<boolean>
