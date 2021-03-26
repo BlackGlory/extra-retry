@@ -75,6 +75,7 @@
     "@blackglory/go": "^0.1.0",
     "@blackglory/types": "^0.4.1",
     "extra-promise": "^0.16.0",
+    "extra-rand": "^0.1.0",
     "hotypes": "^0.1.4"
   }
 }

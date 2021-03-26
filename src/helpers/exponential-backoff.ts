@@ -1,6 +1,6 @@
 import { IPredicate } from '@src/types'
 import { delay } from 'extra-promise'
-import { randomIntInclusive } from '@utils/random'
+import { randomIntInclusive } from 'extra-rand'
 
 export interface IExponentialBackoffOptions {
   baseTimeout: number

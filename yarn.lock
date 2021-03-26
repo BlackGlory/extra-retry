@@ -2513,6 +2513,11 @@ extra-promise@^0.16.0:
     reflect-metadata "^0.1.13"
     return-style "^0.12.3"
 
+extra-rand@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/extra-rand/-/extra-rand-0.1.0.tgz#dd663f2da116c15b5476646fa4025668cd2015b3"
+  integrity sha512-Y3DBl2J8PGndKVCeELV0JtUBxHJLO1Yn8SBHabUgLOzddQdJYgOtTWs/xdiK4sc66pOwfFL8CNhTE7bPxu9vwA==
+
 extra-stream@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/extra-stream/-/extra-stream-0.1.1.tgz#bac16ba049924fe1983b780107228bdafe486cca"
