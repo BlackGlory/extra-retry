@@ -49,15 +49,15 @@ retry until the return value of the `predicate` is [Truthy].
 #### anyOf
 
 ```ts
-function anyOf(...predicates: IPredicate[]): IPredicate<boolean>
+function anyOf(...predicates: Array<IPredicate | Falsy>): IPredicate<boolean>
 ```
 
 Equivalent to
 ```ts
-context => await predicate1(context)
-        || await predicate2(context)
+context => (predicate1 && await predicate1(context))
+        || (predicate2 && await predicate2(context))
         || ...
-        || await predicateN(context)
+        || (predicateN && await predicateN(context))
 ```
 
 #### delay

@@ -1,9 +1,10 @@
+import { Falsy } from 'justypes'
 import { IPredicate } from '@src/types'
 
-export function anyOf(...predicates: IPredicate[]): IPredicate<boolean> {
+export function anyOf(...predicates: Array<IPredicate | Falsy>): IPredicate<boolean> {
   return async context => {
     for (const predicate of predicates) {
-      if (await predicate(context)) {
+      if (predicate && await predicate(context)) {
         return true
       }
     }
