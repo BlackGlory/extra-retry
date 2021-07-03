@@ -1,4 +1,4 @@
-import { Constructor } from 'hotypes'
+import { Constructor } from 'justypes'
 import { IPredicate } from '@src/types'
 
 export function retryOn(errors: Array<Constructor<Error>>): IPredicate<boolean> {
