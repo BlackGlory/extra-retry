@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.8](https://github.com/BlackGlory/extra-retry/compare/v0.2.7...v0.2.8) (2021-09-22)
+
+
+### Features
+
+* modify the type of `IContext.error` to `unknown` ([85615fe](https://github.com/BlackGlory/extra-retry/commit/85615fe0e052c457e17d75115e43fa8058dfe1bf))
+
 ### [0.2.7](https://github.com/BlackGlory/extra-retry/compare/v0.2.6...v0.2.7) (2021-07-13)
 
 ### [0.2.6](https://github.com/BlackGlory/extra-retry/compare/v0.2.5...v0.2.6) (2021-07-03)
