@@ -1,5 +1,5 @@
 export interface IContext {
-  error: Error
+  error: unknown
   retries: number
 }
 

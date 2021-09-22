@@ -73,7 +73,7 @@
   },
   "dependencies": {
     "@blackglory/go": "^0.1.0",
-    "@blackglory/types": "^0.5.0",
+    "@blackglory/types": "^0.5.1",
     "extra-promise": "^0.18.6",
     "extra-rand": "^0.1.0",
     "justypes": "^0.1.5"

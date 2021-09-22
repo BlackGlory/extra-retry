@@ -25,7 +25,7 @@ await retryUntil(anyOf(
 
 ```ts
 interface IContext {
-  error: Error
+  error: unknown
   retries: number // the number of retries, starting from 0.
 }
 
