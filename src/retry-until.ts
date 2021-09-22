@@ -16,7 +16,7 @@ export function retryUntil<T>(...args:
     while (true) {
       try {
         return await fn()
-      } catch (error) {
+      } catch (error: any) {
         const context: IContext = { error, retries }
 
         if (await predicate(context)) throw error
