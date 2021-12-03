@@ -12,7 +12,7 @@ yarn add extra-retry
 ## Usage
 
 ```ts
-import { anyOf, maxRetries, delay } from 'extra-retry'
+import { retryUntil, anyOf, maxRetries, delay } from 'extra-retry'
 import ms from 'ms'
 
 await retryUntil(anyOf(
