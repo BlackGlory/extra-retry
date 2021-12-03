@@ -1,6 +1,6 @@
 import { IPredicate } from '@src/types'
 import { delay } from 'extra-promise'
-import { randomIntInclusive } from 'extra-rand'
+import { calculateExponentialBackoffTimeout } from 'extra-timers'
 
 export interface IExponentialBackoffOptions {
   baseTimeout: number
@@ -16,12 +16,14 @@ export function exponentialBackoff({
 , jitter = true
 }: IExponentialBackoffOptions): IPredicate<boolean> {
   return async ({ retries }) => {
-    const timeout = Math.min(factor ** retries * baseTimeout, maxTimeout)
-    if (jitter) {
-      await delay(randomIntInclusive(0, timeout))
-    } else {
-      await delay(timeout)
-    }
+    const timeout = calculateExponentialBackoffTimeout({
+      baseTimeout
+    , retries
+    , factor
+    , jitter
+    , maxTimeout
+    })
+    await delay(timeout)
     return false
   }
 }
