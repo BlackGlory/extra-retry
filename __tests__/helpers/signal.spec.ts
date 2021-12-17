@@ -1,6 +1,6 @@
 import { signal } from '@helpers/signal'
 import { createContext } from './utils'
-import { AbortController } from 'abort-controller'
+import { AbortController } from 'extra-abort'
 
 describe('signal(abortSignal: AbortSignal): IPredicate<boolean>', () => {
   describe('signal is not aborted', () => {

@@ -13,9 +13,6 @@
     "lib",
     "dist"
   ],
-  "engines": {
-    "node": ">=16"
-  },
   "main": "lib/es2018/index.js",
   "types": "lib/es2018/index.d.ts",
   "repository": "git@github.com:BlackGlory/extra-retry.git",
@@ -47,7 +44,7 @@
     }
   },
   "devDependencies": {
-    "@blackglory/jest-matchers": "^0.1.21",
+    "@blackglory/jest-matchers": "^0.2.1",
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@rollup/plugin-commonjs": "^21.0.1",
@@ -58,8 +55,8 @@
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
-    "abort-controller": "^3.0.0",
     "eslint": "^8.4.1",
+    "extra-abort": "^0.1.0",
     "husky": "^4.3.8",
     "jest": "^27.4.5",
     "jest-extended": "^1.2.0",
@@ -76,8 +73,8 @@
   },
   "dependencies": {
     "@blackglory/go": "^0.1.1",
-    "@blackglory/types": "^0.6.3",
-    "extra-promise": "^0.20.0",
+    "@blackglory/types": "^0.6.4",
+    "extra-promise": "^0.21.0",
     "extra-timers": "^0.2.4",
     "justypes": "^0.1.6"
   }
