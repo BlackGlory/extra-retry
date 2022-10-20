@@ -2,7 +2,6 @@
 Yet another retry library, but functional style.
 
 ## Install
-
 ```sh
 npm install --save extra-retry
 # or
@@ -10,19 +9,20 @@ yarn add extra-retry
 ```
 
 ## Usage
-
 ```ts
 import { retryUntil, anyOf, maxRetries, delay } from 'extra-retry'
 import ms from 'ms'
 
-await retryUntil(anyOf(
-  maxRetries(3)
-, delay(ms('5s'))
-), fn)
+await retryUntil(
+  anyOf(
+    maxRetries(3)
+  , delay(ms('5s'))
+  )
+, fn
+)
 ```
 
 ## API
-
 ```ts
 interface IContext {
   error: unknown
@@ -33,7 +33,6 @@ type IPredicate<T = unknown> = (context: IContext) => T | PromiseLike<T>
 ```
 
 ### retryUntil
-
 ```ts
 function retryUntil<T>(predicate: IPredicate): (fn: () => T | PromiseLike<T>) => Promise<T>
 function retryUntil<T>(predicate: IPredicate, fn: () => T | PromiseLike<T>): Promise<T>
@@ -45,9 +44,7 @@ retry until the return value of the `predicate` is [Truthy].
 [Truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
 
 ### Helpers
-
 #### anyOf
-
 ```ts
 function anyOf(...predicates: Array<IPredicate | Falsy>): IPredicate<boolean>
 ```
@@ -61,13 +58,11 @@ context => (predicate1 && await predicate1(context))
 ```
 
 #### delay
-
 ```ts
 function delay(ms: number): IPredicate
 ```
 
 #### exponentialBackoff
-
 ```ts
 function exponentialBackoff({
   baseTimeout
@@ -89,13 +84,11 @@ delay(jitter ? randomIntInclusive(0, timeout) : timeout)
 ```
 
 #### maxRetries
-
 ```ts
 function maxRetries(times: number): IPredicate<boolean>
 ```
 
 #### notRetryOn
-
 ```ts
 function notRetryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>
 ```
@@ -103,7 +96,6 @@ function notRetryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>
 Blacklist.
 
 #### notRetryOnCommonFatalErrors
-
 ```ts
 const notRetryOnCommonFatalErrors: IPredicate<boolean>
 ```
@@ -119,7 +111,6 @@ There is no `TypeError` because `TypeError` does not mean
 it has been abused for various purposes.
 
 #### retryOn
-
 ```ts
 function retryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>
 ```
@@ -127,7 +118,6 @@ function retryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>
 Whitelist.
 
 #### signal
-
 ```ts
 function signal(abortSignal: AbortSignal): IPredicate<boolean>
 ```
