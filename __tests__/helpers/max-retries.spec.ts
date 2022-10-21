@@ -1,7 +1,7 @@
 import { maxRetries } from '@helpers/max-retries'
 import { createContext } from './utils'
 
-describe('maxRetries(times: number): IPredicate<boolean>', () => {
+describe('maxRetries', () => {
   describe('retries < times', () => {
     it('return false', () => {
       const context = createContext({ retries: 1 })

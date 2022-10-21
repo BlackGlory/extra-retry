@@ -2,7 +2,7 @@ import { anyOf } from '@helpers/any-of'
 import { createContext } from './utils'
 import '@blackglory/jest-matchers'
 
-describe('anyOf(...predicates: Array<IPredicate | Falsy>): IPredicate<boolean>', () => {
+describe('anyOf', () => {
   test('mixed predicates', async () => {
     const predicate1 = jest.fn().mockResolvedValue(false)
     const predicate2 = jest.fn().mockReturnValue(false)

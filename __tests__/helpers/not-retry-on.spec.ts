@@ -1,7 +1,7 @@
 import { notRetryOn } from '@helpers/not-retry-on'
 import { createContext } from './utils'
 
-describe('notRetryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>', () => {
+describe('notRetryOn', () => {
   describe('matched', () => {
     it('return true', () => {
       const context = createContext({ error: new TypeError('custom type error') })

@@ -3,7 +3,7 @@ import { createContext, getTimestamp, TIME_ERROR } from './utils'
 import '@blackglory/jest-matchers'
 import 'jest-extended'
 
-describe('exponentialBackoff(options: IExponentialBackoffOptions): IPredicate<boolean>', () => {
+describe('exponentialBackoff', () => {
   test('maxTimeout', async () => {
     const context = createContext({ retries: 2 })
 

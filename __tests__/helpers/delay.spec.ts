@@ -2,7 +2,7 @@ import { delay } from '@helpers/delay'
 import { createContext, getTimestamp, TIME_ERROR } from './utils'
 import '@blackglory/jest-matchers'
 
-test('delay(ms: number): IPredicate<boolean>', async () => {
+test('delay', async () => {
   const context = createContext()
 
   const predicate = delay(1000)

@@ -2,7 +2,7 @@ import { getErrorPromise } from 'return-style'
 import { retryUntil } from '@src/retry-until'
 import '@blackglory/jest-matchers'
 
-describe('retryUntil<T>(predicate: IPredicate, fn: () => T | PromiseLike<T>): Promise<T>', () => {
+describe('retryUntil', () => {
   describe('fn fail once', () => {
     it('return resolved Promise', async () => {
       const value = 'value'

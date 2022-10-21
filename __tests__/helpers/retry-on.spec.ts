@@ -1,7 +1,7 @@
 import { retryOn } from '@helpers/retry-on'
 import { createContext } from './utils'
 
-describe('retryOn(errors: Array<Constructor<Error>>): IPredicate<boolean>', () => {
+describe('retryOn', () => {
   describe('matched', () => {
     it('return false', () => {
       const context = createContext({ error: new TypeError('custom type error') })
