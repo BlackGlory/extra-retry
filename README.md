@@ -34,8 +34,8 @@ type IPredicate<T = unknown> = (context: IContext) => T | PromiseLike<T>
 
 ### retryUntil
 ```ts
-function retryUntil<T>(predicate: IPredicate): (fn: () => T | PromiseLike<T>) => Promise<T>
-function retryUntil<T>(predicate: IPredicate, fn: () => T | PromiseLike<T>): Promise<T>
+function retryUntil(predicate: IPredicate): <T>(fn: () => Awaitable<T>) => Promise<T>
+function retryUntil<T>(predicate: IPredicate, fn: () => Awaitable<T>): Promise<T>
 ```
 
 If `fn` throws an error,

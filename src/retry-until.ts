@@ -1,11 +1,12 @@
 import { IPredicate, IContext } from './types'
 import { go } from '@blackglory/go'
+import { Awaitable } from 'justypes'
 
-export function retryUntil(predicate: IPredicate): <T>(fn: () => T | PromiseLike<T>) => Promise<T>
-export function retryUntil<T>(predicate: IPredicate, fn: () => T | PromiseLike<T>): Promise<T>
+export function retryUntil(predicate: IPredicate): <T>(fn: () => Awaitable<T>) => Promise<T>
+export function retryUntil<T>(predicate: IPredicate, fn: () => Awaitable<T>): Promise<T>
 export function retryUntil<T>(...args:
 | [predicate: IPredicate]
-| [predicate: IPredicate, fn: () => T | PromiseLike<T>]
+| [predicate: IPredicate, fn: () => Awaitable<T>]
 ) {
   if (args.length === 1) return retryUntil.bind(null, ...args)
 
