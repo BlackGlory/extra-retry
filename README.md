@@ -121,3 +121,8 @@ Whitelist.
 ```ts
 function signal(abortSignal: AbortSignal): IPredicate<boolean>
 ```
+
+#### tap
+```ts
+function tap(fn: (context: IContext) => void): IPredicate<false>
+```
