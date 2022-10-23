@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.5](https://github.com/BlackGlory/extra-retry/compare/v0.3.4...v0.3.5) (2022-10-23)
+
+
+### Features
+
+* add tap ([655f2b8](https://github.com/BlackGlory/extra-retry/commit/655f2b82b49a2e3948445a427fd5e203a90eba80))
+
 ### [0.3.4](https://github.com/BlackGlory/extra-retry/compare/v0.3.3...v0.3.4) (2022-10-20)
 
 ### [0.3.3](https://github.com/BlackGlory/extra-retry/compare/v0.3.2...v0.3.3) (2022-08-01)
