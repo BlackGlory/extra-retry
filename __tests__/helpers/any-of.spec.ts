@@ -1,6 +1,5 @@
 import { anyOf } from '@helpers/any-of'
 import { createContext } from './utils'
-import '@blackglory/jest-matchers'
 
 describe('anyOf', () => {
   test('mixed predicates', async () => {
@@ -9,11 +8,9 @@ describe('anyOf', () => {
     const context = createContext()
 
     const predicate = anyOf(predicate1, predicate2)
-    const result = predicate(context)
-    const proResult = await result
+    const result = await predicate(context)
 
-    expect(result).toBePromise()
-    expect(proResult).toBe(false)
+    expect(result).toBe(false)
     expect(predicate1).toBeCalledWith(context)
     expect(predicate2).toBeCalledWith(context)
   })
@@ -24,11 +21,9 @@ describe('anyOf', () => {
     const context = createContext()
 
     const predicate = anyOf(predicate1, predicate2)
-    const result = predicate(context)
-    const proResult = await result
+    const result = await predicate(context)
 
-    expect(result).toBePromise()
-    expect(proResult).toBe(true)
+    expect(result).toBe(true)
     expect(predicate1).toBeCalledWith(context)
     expect(predicate2).not.toBeCalled()
   })

@@ -1,7 +1,5 @@
 import { exponentialBackoff } from '@helpers/exponential-backoff'
 import { createContext, getTimestamp, TIME_ERROR } from './utils'
-import '@blackglory/jest-matchers'
-import 'jest-extended'
 
 describe('exponentialBackoff', () => {
   test('maxTimeout', async () => {
@@ -15,13 +13,12 @@ describe('exponentialBackoff', () => {
     , jitter: false
     })
     const startTime = getTimestamp()
-    const result = predicate(context)
-    const proResult = await result
+    const result = await predicate(context)
     const endTime = getTimestamp()
 
-    expect(result).toBePromise()
-    expect(proResult).toBe(false)
-    expect(endTime - startTime).toBeWithin(1500 - TIME_ERROR, 2000 - TIME_ERROR)
+    expect(result).toBe(false)
+    expect(endTime - startTime).toBeGreaterThanOrEqual(1500 - TIME_ERROR)
+    expect(endTime - startTime).toBeLessThan(2000 - TIME_ERROR)
   })
 
   describe('jitter', () => {
@@ -36,12 +33,10 @@ describe('exponentialBackoff', () => {
       , jitter: true
       })
       const startTime = getTimestamp()
-      const result = predicate(context)
-      const proResult = await result
+      const result = await predicate(context)
       const endTime = getTimestamp()
 
-      expect(result).toBePromise()
-      expect(proResult).toBe(false)
+      expect(result).toBe(false)
       expect(endTime - startTime).toBeLessThanOrEqual(2000)
     })
 
@@ -56,12 +51,10 @@ describe('exponentialBackoff', () => {
       , jitter: false
       })
       const startTime = getTimestamp()
-      const result = predicate(context)
-      const proResult = await result
+      const result = await predicate(context)
       const endTime = getTimestamp()
 
-      expect(result).toBePromise()
-      expect(proResult).toBe(false)
+      expect(result).toBe(false)
       expect(endTime - startTime).toBeGreaterThanOrEqual(2000 - TIME_ERROR)
     })
   })
