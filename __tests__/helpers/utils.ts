@@ -1,4 +1,4 @@
-import { IContext } from '@src/types'
+import { IContext } from '@src/types.js'
 
 export const TIME_ERROR = 1
 

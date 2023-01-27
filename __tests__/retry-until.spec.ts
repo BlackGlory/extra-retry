@@ -1,12 +1,13 @@
-import { retryUntil } from '@src/retry-until'
+import { retryUntil } from '@src/retry-until.js'
 import { getErrorPromise } from 'return-style'
+import { jest } from '@jest/globals'
 
 describe('retryUntil', () => {
   describe('fn fail once', () => {
     it('return resolved Promise', async () => {
       const value = 'value'
       const error = new Error('CustomError')
-      const fn = jest.fn().mockRejectedValueOnce(error).mockResolvedValue(value)
+      const fn = jest.fn<any>().mockRejectedValueOnce(error).mockResolvedValue(value)
       const predicate = jest.fn().mockReturnValue(false)
 
       const result = await retryUntil(predicate, fn)
@@ -21,8 +22,10 @@ describe('retryUntil', () => {
   describe('fn retry once', () => {
     it('return rejected Promise', async () => {
       const error = new Error('CustomError')
-      const fn = jest.fn().mockRejectedValue(error)
-      const predicate = jest.fn().mockResolvedValueOnce(false).mockResolvedValue(true)
+      const fn = jest.fn<any>().mockRejectedValue(error)
+      const predicate = jest.fn<any>()
+        .mockResolvedValueOnce(false)
+        .mockResolvedValue(true)
 
       const err = await await getErrorPromise(retryUntil(predicate, fn))
 

@@ -1,5 +1,6 @@
-import { tap } from '@helpers/tap'
-import { createContext } from './utils'
+import { tap } from '@helpers/tap.js'
+import { createContext } from './utils.js'
+import { jest } from '@jest/globals'
 
 describe('tap', () => {
   it('alwasy returns false', () => {

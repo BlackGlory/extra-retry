@@ -1,4 +1,4 @@
-import { IPredicate } from '@src/types'
+import { IPredicate } from '@src/types.js'
 import * as ExtraPromise from 'extra-promise'
 
 export function delay(ms: number): IPredicate<boolean> {

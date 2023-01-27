@@ -1,9 +1,14 @@
-import { IPredicate, IContext } from './types'
+import { IPredicate, IContext } from './types.js'
 import { go } from '@blackglory/go'
 import { Awaitable } from 'justypes'
 
-export function retryUntil(predicate: IPredicate): <T>(fn: () => Awaitable<T>) => Promise<T>
-export function retryUntil<T>(predicate: IPredicate, fn: () => Awaitable<T>): Promise<T>
+export function retryUntil(predicate: IPredicate): <T>(
+  fn: () => Awaitable<T>
+) => Promise<T>
+export function retryUntil<T>(
+  predicate: IPredicate
+, fn: () => Awaitable<T>
+): Promise<T>
 export function retryUntil<T>(...args:
 | [predicate: IPredicate]
 | [predicate: IPredicate, fn: () => Awaitable<T>]

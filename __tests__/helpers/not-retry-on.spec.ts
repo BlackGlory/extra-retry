@@ -1,5 +1,5 @@
-import { notRetryOn } from '@helpers/not-retry-on'
-import { createContext } from './utils'
+import { notRetryOn } from '@helpers/not-retry-on.js'
+import { createContext } from './utils.js'
 
 describe('notRetryOn', () => {
   describe('matched', () => {

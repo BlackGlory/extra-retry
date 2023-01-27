@@ -1,5 +1,5 @@
-import { maxRetries } from '@helpers/max-retries'
-import { createContext } from './utils'
+import { maxRetries } from '@helpers/max-retries.js'
+import { createContext } from './utils.js'
 
 describe('maxRetries', () => {
   describe('retries < times', () => {

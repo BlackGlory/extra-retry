@@ -1,5 +1,5 @@
-import { delay } from '@helpers/delay'
-import { createContext, getTimestamp, TIME_ERROR } from './utils'
+import { delay } from '@helpers/delay.js'
+import { createContext, getTimestamp, TIME_ERROR } from './utils.js'
 
 test('delay', async () => {
   const context = createContext()

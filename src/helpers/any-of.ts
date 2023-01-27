@@ -1,5 +1,5 @@
 import { Falsy } from 'justypes'
-import { IPredicate } from '@src/types'
+import { IPredicate } from '@src/types.js'
 
 export function anyOf(...predicates: Array<IPredicate | Falsy>): IPredicate<boolean> {
   return async context => {

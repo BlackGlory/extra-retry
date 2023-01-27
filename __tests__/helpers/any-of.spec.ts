@@ -1,9 +1,10 @@
-import { anyOf } from '@helpers/any-of'
-import { createContext } from './utils'
+import { anyOf } from '@helpers/any-of.js'
+import { createContext } from './utils.js'
+import { jest } from '@jest/globals'
 
 describe('anyOf', () => {
   test('mixed predicates', async () => {
-    const predicate1 = jest.fn().mockResolvedValue(false)
+    const predicate1 = jest.fn<any>().mockResolvedValue(false)
     const predicate2 = jest.fn().mockReturnValue(false)
     const context = createContext()
 

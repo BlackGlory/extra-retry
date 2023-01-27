@@ -1,4 +1,4 @@
-import { IPredicate } from '@src/types'
+import { IPredicate } from '@src/types.js'
 import { delay } from 'extra-promise'
 import { calculateExponentialBackoffTimeout } from 'extra-timers'
 

@@ -1,5 +1,5 @@
-import { exponentialBackoff } from '@helpers/exponential-backoff'
-import { createContext, getTimestamp, TIME_ERROR } from './utils'
+import { exponentialBackoff } from '@helpers/exponential-backoff.js'
+import { createContext, getTimestamp, TIME_ERROR } from './utils.js'
 
 describe('exponentialBackoff', () => {
   test('maxTimeout', async () => {

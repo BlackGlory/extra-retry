@@ -1,5 +1,5 @@
-import { retryOn } from '@helpers/retry-on'
-import { createContext } from './utils'
+import { retryOn } from '@helpers/retry-on.js'
+import { createContext } from './utils.js'
 
 describe('retryOn', () => {
   describe('matched', () => {
