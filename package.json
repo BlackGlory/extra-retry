@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "@blackglory/go": "^1.1.2",
-    "extra-promise": "^6.0.2",
+    "extra-promise": "^6.0.3",
     "extra-timers": "^0.2.5",
     "justypes": "^4.1.0"
   }
