@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.3](https://github.com/BlackGlory/extra-retry/compare/v0.4.2...v0.4.3) (2023-06-11)
+
+
+### Bug Fixes
+
+* export src ([771dc45](https://github.com/BlackGlory/extra-retry/commit/771dc455e9230538fb9f3a5443e53b821c464c74))
+
 ### [0.4.2](https://github.com/BlackGlory/extra-retry/compare/v0.4.1...v0.4.2) (2023-01-27)
 
 ### [0.4.1](https://github.com/BlackGlory/extra-retry/compare/v0.4.0...v0.4.1) (2023-01-27)
