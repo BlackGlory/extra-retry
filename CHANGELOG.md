@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.5](https://github.com/BlackGlory/extra-retry/compare/v0.4.4...v0.4.5) (2025-06-29)
+
+
+### Features
+
+* improve `withRetryUntil` ([31eb532](https://github.com/BlackGlory/extra-retry/commit/31eb5322e7e8248529784aa068eb5d99759a70f5))
+
 ### [0.4.4](https://github.com/BlackGlory/extra-retry/compare/v0.4.3...v0.4.4) (2025-06-29)
 
 
