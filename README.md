@@ -29,7 +29,7 @@ interface IContext {
   retries: number // the number of retries, starting from 0.
 }
 
-type IPredicate<T = unknown> = (context: IContext) => T | PromiseLike<T>
+type IPredicate<T = unknown> = (context: IContext) => Awaitable<T>
 ```
 
 ### retryUntil
@@ -42,6 +42,16 @@ If `fn` throws an error,
 retry until the return value of the `predicate` is [Truthy].
 
 [Truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+
+### withRetryUntil
+```ts
+function withRetryUntil<Args extends unknown[], Result>(
+  predicate: IPredicate
+, fn: (...args: Args) => Awaitable<Result>
+): (...args: Args) => Promise<Result>
+```
+
+A simple wrapper around `retryUntil`.
 
 ### Helpers
 #### anyOf

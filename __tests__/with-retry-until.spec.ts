@@ -1,8 +1,8 @@
-import { retryUntil } from '@src/retry-until.js'
+import { withRetryUntil } from '@src/with-retry-until.js'
 import { getErrorPromise } from 'return-style'
 import { jest } from '@jest/globals'
 
-describe('retryUntil', () => {
+describe('withRetryUntil', () => {
   test('resolved', async () => {
     const value = 'value'
     const error = new Error('CustomError')
@@ -12,7 +12,8 @@ describe('retryUntil', () => {
     const predicate = jest.fn()
       .mockReturnValue(false)
 
-    const result = await retryUntil(predicate, fn)
+    const fnWithRetry = withRetryUntil(predicate, fn)
+    const result = await fnWithRetry()
 
     expect(fn).toBeCalledTimes(2)
     expect(predicate).toBeCalledTimes(1)
@@ -28,7 +29,8 @@ describe('retryUntil', () => {
       .mockReturnValueOnce(false)
       .mockReturnValue(true)
 
-    const err = await getErrorPromise(retryUntil(predicate, fn))
+    const fnWithRetry = withRetryUntil(predicate, fn)
+    const err = await getErrorPromise(fnWithRetry())
 
     expect(fn).toBeCalledTimes(2)
     expect(predicate).toBeCalledTimes(2)
