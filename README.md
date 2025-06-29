@@ -47,7 +47,9 @@ retry until the return value of the `predicate` is [Truthy].
 ```ts
 function withRetryUntil(
   predicate: IPredicate
-): <Args extends unknown[], Result>(...args: Args) => Promise<Result>
+): <Args extends unknown[], Result>(
+  fn: (...args: Args) => Awaitable<Result>
+) => (...args: Args) => Promise<Result>
 function withRetryUntil<Args extends unknown[], Result>(
   predicate: IPredicate
 , fn: (...args: Args) => Awaitable<Result>

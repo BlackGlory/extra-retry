@@ -1,8 +1,19 @@
 import { withRetryUntil } from '@src/with-retry-until.js'
 import { getErrorPromise } from 'return-style'
 import { jest } from '@jest/globals'
+import { IPredicate } from '@src/types.js'
+import { Awaitable } from 'justypes'
 
-describe('withRetryUntil', () => {
+describe.each([
+  (
+    predicate: IPredicate
+  , fn: (...args: unknown[]) => Awaitable<unknown>
+  ) => withRetryUntil(predicate)(fn)
+, (
+    predicate: IPredicate
+  , fn: (...args: unknown[]) => Awaitable<unknown>
+  ) => withRetryUntil(predicate, fn)
+])('withRetryUntil', withRetryUntil => {
   test('resolved', async () => {
     const value = 'value'
     const error = new Error('CustomError')

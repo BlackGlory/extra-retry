@@ -1,8 +1,13 @@
 import { retryUntil } from '@src/retry-until.js'
 import { getErrorPromise } from 'return-style'
 import { jest } from '@jest/globals'
+import { IPredicate } from '@src/types.js'
+import { Awaitable } from 'justypes'
 
-describe('retryUntil', () => {
+describe.each([
+  (predicate: IPredicate, fn: () => Awaitable<unknown>) => retryUntil(predicate)(fn)
+, (predicate: IPredicate, fn: () => Awaitable<unknown>) => retryUntil(predicate, fn)
+])('retryUntil', retryUntil => {
   test('resolved', async () => {
     const value = 'value'
     const error = new Error('CustomError')

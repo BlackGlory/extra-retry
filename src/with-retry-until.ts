@@ -4,7 +4,9 @@ import { retryUntil } from './retry-until.js'
 
 export function withRetryUntil(
   predicate: IPredicate
-): <Args extends unknown[], Result>(...args: Args) => Promise<Result>
+): <Args extends unknown[], Result>(
+  fn: (...args: Args) => Awaitable<Result>
+) => (...args: Args) => Promise<Result>
 export function withRetryUntil<Args extends unknown[], Result>(
   predicate: IPredicate
 , fn: (...args: Args) => Awaitable<Result>
