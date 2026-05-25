@@ -1,5 +1,5 @@
 import { IPredicate, IContext } from './types.js'
-import { go } from '@blackglory/go'
+import { go } from '@blackglory/prelude'
 import { Awaitable } from 'justypes'
 
 export function retryUntil(

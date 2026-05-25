@@ -42,6 +42,7 @@
     "@commitlint/cli": "^21.0.1",
     "@commitlint/config-conventional": "^21.0.1",
     "@eslint/js": "^10.0.1",
+    "@types/node": "22",
     "cross-env": "^10.1.0",
     "eslint": "^10.4.0",
     "extra-abort": "^0.5.1",
@@ -60,7 +61,7 @@
     "vitest": "^4.1.7"
   },
   "dependencies": {
-    "@blackglory/go": "^2.0.0",
+    "@blackglory/prelude": "^0.4.0",
     "extra-promise": "^7.1.1",
     "extra-timers": "^0.3.1",
     "justypes": "^4.5.0"

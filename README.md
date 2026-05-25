@@ -39,7 +39,25 @@ function retryUntil<T>(predicate: IPredicate, fn: () => Awaitable<T>): Promise<T
 ```
 
 If `fn` throws an error,
-retry until the return value of the `predicate` is [Truthy].
+retry `fn` until the return value of the `predicate` is [Truthy].
+
+[Truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+
+### retryIterableUntil
+```ts
+function retryIterableUntil(
+  predicate: IPredicate
+): <T>(
+  fn: () => Awaitable<Iterable<T> | AsyncIterable<T>>
+) => AsyncIterableIterator<Awaited<T>>
+function retryIterableUntil<T>(
+  predicate: IPredicate
+, fn: () => Awaitable<Iterable<T> | AsyncIterable<T>>
+): AsyncIterableIterator<Awaited<T>>
+```
+
+If `fn` or the Iterable/AsyncIterable returned by it throws an error,
+retry `fn` until the return value of the `predicate` is [Truthy].
 
 [Truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
 
@@ -56,7 +74,22 @@ function withRetryUntil<Args extends unknown[], Result>(
 ): (...args: Args) => Promise<Result>
 ```
 
-A simple wrapper around `retryUntil`.
+A simple wrapper for `retryUntil`.
+
+### withRetryIterableUntil
+```ts
+function withRetryIterableUntil(
+  predicate: IPredicate
+): <Args extends unknown[], Value>(
+  fn: (...args: Args) => Awaitable<Iterable<Value> | AsyncIterable<Value>>
+) => (...args: Args) => AsyncIterableIterator<Awaited<Value>>
+function withRetryIterableUntil<Args extends unknown[], Value>(
+  predicate: IPredicate
+, fn: (...args: Args) => Awaitable<Iterable<Value> | AsyncIterable<Value>>
+): (...args: Args) => AsyncIterableIterator<Awaited<Value>>
+```
+
+A simple wrapper for `retryIterableUntil`.
 
 ### Helpers
 #### anyOf

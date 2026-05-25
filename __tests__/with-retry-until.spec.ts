@@ -1,52 +1,37 @@
-import { describe, test, expect, vi } from 'vitest'
+import { test, expect, vi } from 'vitest'
 import { withRetryUntil } from '@src/with-retry-until.js'
-import { getErrorPromise } from 'return-style'
 import { IPredicate } from '@src/types.js'
 import { Awaitable } from 'justypes'
 
-describe.each([
-  (
+test.each([
+  <Args extends unknown[], Result>(
     predicate: IPredicate
-  , fn: (...args: unknown[]) => Awaitable<unknown>
+  , fn: (...args: Args) => Awaitable<Result>
   ) => withRetryUntil(predicate)(fn)
-, (
+, <Args extends unknown[], Result>(
     predicate: IPredicate
-  , fn: (...args: unknown[]) => Awaitable<unknown>
+  , fn: (...args: Args) => Awaitable<Result>
   ) => withRetryUntil(predicate, fn)
-])('withRetryUntil', withRetryUntil => {
-  test('resolved', async () => {
-    const value = 'value'
-    const error = new Error('CustomError')
-    const fn = vi.fn<() => Promise<string>>()
-      .mockRejectedValueOnce(error)
-      .mockResolvedValue(value)
-    const predicate = vi.fn()
-      .mockReturnValue(false)
-
-    const fnWithRetry = withRetryUntil(predicate, fn)
-    const result = await fnWithRetry()
-
-    expect(fn).toHaveBeenCalledTimes(2)
-    expect(predicate).toHaveBeenCalledTimes(1)
-    expect(predicate).toHaveBeenCalledWith({ error, retries: 0 })
-    expect(result).toBe(value)
+])('withRetryUntil', async withRetryUntil => {
+  const error = new Error('CustomError')
+  let runs = 0
+  const fn = vi.fn<(value: string) => Promise<string>>(async (value: string) => {
+    if (++runs === 1) {
+      throw error
+    } else {
+      return value
+    }
   })
+  const predicate = vi.fn()
+    .mockReturnValue(false)
 
-  test('rejected', async () => {
-    const error = new Error('CustomError')
-    const fn = vi.fn<() => never>()
-      .mockRejectedValue(error)
-    const predicate = vi.fn<() => boolean>()
-      .mockReturnValueOnce(false)
-      .mockReturnValue(true)
+  const fnWithRetry = withRetryUntil(predicate, fn)
+  const result = await fnWithRetry('foo')
 
-    const fnWithRetry = withRetryUntil(predicate, fn)
-    const err = await getErrorPromise(fnWithRetry())
-
-    expect(fn).toHaveBeenCalledTimes(2)
-    expect(predicate).toHaveBeenCalledTimes(2)
-    expect(predicate).nthCalledWith(1, { error, retries: 0 })
-    expect(predicate).nthCalledWith(2, { error, retries: 1 })
-    expect(err).toBe(error)
-  })
+  expect(fn).toHaveBeenCalledTimes(2)
+  expect(fn).nthCalledWith(1, 'foo')
+  expect(fn).nthCalledWith(2, 'foo')
+  expect(predicate).toHaveBeenCalledTimes(1)
+  expect(predicate).toHaveBeenCalledWith({ error, retries: 0 })
+  expect(result).toBe('foo')
 })

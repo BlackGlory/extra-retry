@@ -1,4 +1,6 @@
 export * from './types.js'
 export * from './retry-until.js'
+export * from './retry-iterable-until.js'
 export * from './with-retry-until.js'
+export * from './with-retry-iterable-until.js'
 export * from './helpers/index.js'

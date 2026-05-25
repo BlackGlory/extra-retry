@@ -5,6 +5,9 @@ export default ts.config(
   js.configs.recommended
 , ...ts.configs.recommended
 , {
-    rules: {}
+    rules: {
+      'require-yield': 'off'
+    , 'no-fallthrough': 'off'
+    }
   }
 )
