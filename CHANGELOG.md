@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/BlackGlory/extra-retry/compare/v0.4.6...v0.5.0) (2026-05-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Node.js v16 => Node.js v22
+
+### Features
+
+* add `retryIterableUntil`, `withRetryIterableUntil` ([23bd1da](https://github.com/BlackGlory/extra-retry/commit/23bd1da0f55ca946eae38bff4f95eab355746cd8))
+
+
+* upgrade dependencies ([e1a19f9](https://github.com/BlackGlory/extra-retry/commit/e1a19f9a47415a7058a36f26675121e31f949d5b))
+
 ### [0.4.6](https://github.com/BlackGlory/extra-retry/compare/v0.4.5...v0.4.6) (2025-06-29)
 
 
